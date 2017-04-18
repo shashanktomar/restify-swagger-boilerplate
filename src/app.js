@@ -25,6 +25,7 @@ specResolver()
         console.log('%s:%s listening at  %s', server.name, pjson.version, server.url);
       });
     });
+    return true;
   })
   .catch(err => {
     throw err;
