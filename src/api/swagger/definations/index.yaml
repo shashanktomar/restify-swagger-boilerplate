@@ -1,0 +1,4 @@
+Pong:
+  $ref: ./Pong.yaml
+Error:
+  $ref: ./Error.yaml

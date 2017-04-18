@@ -1,0 +1,4 @@
+/ping:
+  $ref: ./ping.yaml
+/swagger:
+  $ref: ./swagger.yaml

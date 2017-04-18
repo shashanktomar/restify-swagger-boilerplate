@@ -1,0 +1,14 @@
+get:
+  description: Returns 'pong' to the caller
+  operationId: ping
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "#/definitions/Pong"
+    default:
+      description: Error
+      schema:
+        $ref: "#/definitions/Error"
+
+x-swagger-router-controller: ping

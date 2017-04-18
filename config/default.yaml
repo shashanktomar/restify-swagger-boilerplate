@@ -1,4 +1,5 @@
 app:
+  host: localhost
   port: 8080
   log-level: debug
 

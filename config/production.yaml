@@ -1,0 +1,4 @@
+app:
+  host: api.restify-boilerplate
+  port: 8080
+  log-level: info
