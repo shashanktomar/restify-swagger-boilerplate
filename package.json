@@ -4,13 +4,17 @@
   "description": "A boilerplate code for restify with babel, swagger, flow and eslint support",
   "main": "app.js",
   "scripts": {
+    "prebuild": "rimraf build",
     "build": "babel src -d build --copy-files",
-    "start": "cross-env NODE_ENV=production node build/app.js",
-    "watch": "cross-env NODE_ENV=development babel-watch src/app.js",
+    "start": "npm run build && cross-env NODE_ENV=development node build/app.js | node_modules/bunyan/bin/bunyan",
+    "start:watch": "cross-env NODE_ENV=development WATCH=true babel-watch -w src/api src/app.js | node_modules/bunyan/bin/bunyan",
     "flowtyped": "flow-typed install",
     "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty .",
     "lint-fix": "npm run lint -- --fix",
-    "test": "npm run typecheck",
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:watch": "npm test -- --watch",
+    "test:all": "npm run lint && npm run typecheck && npm run test",
     "typecheck": "flow"
   },
   "keywords": [
@@ -28,6 +32,7 @@
   "author": "Shashank",
   "license": "MIT",
   "dependencies": {
+    "bunyan": "^1.8.10",
     "config": "^1.25.1",
     "restify": "^4.3.0",
     "swagger-restify-mw": "^0.7.0"
@@ -36,6 +41,7 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.1",
+    "babel-jest": "^20.0.3",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
@@ -49,10 +55,12 @@
     "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-flowtype-errors": "^3.0.3",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
     "flow-bin": "^0.43.1",
-    "flow-typed": "^2.0.0"
+    "flow-typed": "^2.0.0",
+    "jest": "^20.0.0"
   }
 }

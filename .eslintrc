@@ -3,7 +3,9 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true,
+    "jest/globals": true
   },
   "rules": {
     "arrow-parens": ["off"],
@@ -23,7 +25,11 @@
     "react/jsx-no-bind": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/prefer-stateless-function": "off",
-    "flowtype-errors/show-errors": "error"
+    "flowtype-errors/show-errors": "error",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error"
   },
   "plugins": [
     "flowtype",
@@ -31,7 +37,8 @@
     "import",
     "promise",
     "compat",
-    "react"
+    "react",
+    "jest"
   ],
   "settings": {
     "import/resolver": {
